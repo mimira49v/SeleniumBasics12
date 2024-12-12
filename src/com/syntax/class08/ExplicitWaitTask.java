@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ExplicitWaitTask {
 
     /**
@@ -25,7 +27,7 @@ public class ExplicitWaitTask {
         WebElement startButton = driver.findElement(By.cssSelector("button#startButton"));
         startButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Welcome')]")));
 
         WebElement welcome = driver.findElement(By.xpath("//*[contains(text(), 'Welcome')]"));

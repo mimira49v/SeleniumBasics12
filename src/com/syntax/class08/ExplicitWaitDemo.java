@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ExplicitWaitDemo {
 
     /**
@@ -25,7 +27,7 @@ public class ExplicitWaitDemo {
         WebElement getNewUserButton = driver.findElement(By.id("save"));
         getNewUserButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'First Name')]")));
 
         WebElement firstName = driver.findElement(By.xpath("//p[contains(text(), 'First Name')]"));
